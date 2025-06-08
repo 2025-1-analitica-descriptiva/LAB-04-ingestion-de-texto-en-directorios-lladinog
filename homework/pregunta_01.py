@@ -71,15 +71,15 @@ def pregunta_01():
 
 
     """
-        # Definir rutas
+    # Definir rutas
     base_path = 'files/input'
     output_path = 'files/output'
 
     create_directory(output_path)
 
     # Procesar train y test
-    train_data = data_processing('train', base_path)
-    test_data = data_processing('test', base_path)
+    train_data = data_processing(path=base_path, directory='train', text_column='phrase', label_column='target')
+    test_data = data_processing(path=base_path, directory='test', text_column='phrase', label_column='target')
 
     # Guardar en CSV
     create_csv_file(train_data, output_path, 'train_dataset.csv')

@@ -4,7 +4,7 @@
 """
 Escriba el codigo que ejecute la accion solicitada en cada pregunta.
 """
-
+from homework.utils import create_directory, data_processing, create_csv_file
 
 def pregunta_01():
     """
@@ -71,3 +71,20 @@ def pregunta_01():
 
 
     """
+        # Definir rutas
+    base_path = 'files/input'
+    output_path = 'files/output'
+
+    create_directory(output_path)
+
+    # Procesar train y test
+    train_data = data_processing('train', base_path)
+    test_data = data_processing('test', base_path)
+
+    # Guardar en CSV
+    create_csv_file(train_data, output_path, 'train_dataset.csv')
+    create_csv_file(test_data, output_path, 'test_dataset.csv')
+
+if __name__ == "__main__":
+    pregunta_01()
+    print("Pregunta 01 completada. Los archivos CSV se han generado en la carpeta 'output'.")
